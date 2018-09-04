@@ -1,0 +1,17 @@
+Approach 1:Horizontal scanning
+Intuition
+For a start we wii describe a simple way of finding the longest prefix shared by a set of strings LCP(S1....Sn).
+We will use the observation that:
+LCP(S1...Sn) = LCP(LCP(LCP(S1, S2), S3), ...Sn)
+
+Algorithm
+To employ this idea, the algorithm iterates through the strings [S1,...Sn], finding at each iteration i the longest common 
+prefix of strings LCP(S1,...Si). When LCP(S1, ... Si) is an empty string, the algorithm ends.
+Otherwise after n iterations, the algorithm returns LCP(S1...Sn)
+
+
+Approach 2:Vertical scanning
+Algorithm
+Imagine a very short string is at the end of the array. The above approach will still do S comparisons. One way to optimize
+this case is to do vertical scanning. We compare characters from top to bottom on the same column(same character index of the
+string) before moving on to the next column.
